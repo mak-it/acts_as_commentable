@@ -19,7 +19,10 @@ module Juixe
             comment_roles = args.to_a.flatten.compact.map(&:to_sym)
           end
 
-          write_inheritable_attribute(:comment_types, (comment_roles.blank? ? [:comments] : comment_roles))
+          #write_inheritable_attribute(:comment_types, (comment_roles.blank? ? [:comments] : comment_roles))
+          class_attribute :comment_types
+          self.attribute_name = (comment_roles.blank? ? [:comments] : comment_roles)
+
           class_inheritable_reader(:comment_types)
 
           if !comment_roles.blank?
