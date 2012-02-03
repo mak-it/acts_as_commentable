@@ -21,7 +21,7 @@ module Juixe
 
           #write_inheritable_attribute(:comment_types, (comment_roles.blank? ? [:comments] : comment_roles))
           class_attribute :comment_types
-          self.attribute_name = (comment_roles.blank? ? [:comments] : comment_roles)
+          self.comment_types = (comment_roles.blank? ? [:comments] : comment_roles)
 
           class_inheritable_reader(:comment_types)
 
